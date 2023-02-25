@@ -44,7 +44,7 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        $this->memberService;
+        $this->memberService->store($request);
 
         return redirect()->route('members.index')->with('success', 'Ma`lumot kiriritildi');
     }
