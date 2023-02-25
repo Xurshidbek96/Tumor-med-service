@@ -18,17 +18,17 @@ use App\Http\Controllers\MemberController;
 |
 */
 
-Route::get('/',function(){
-    return redirect()->route('members.index');
-})->name('index');
-
-Route::resource('members', MemberController::class);
-Route::get('diagramm', [SiteController::class, 'diagramm'])->name('diagramm');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/',function(){
+        return redirect()->route('members.index');
+    })->name('index');
+
+    Route::resource('members', MemberController::class);
+    Route::get('diagramm', [SiteController::class, 'diagramm'])->name('diagramm');
 
 });

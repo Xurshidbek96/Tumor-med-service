@@ -4,9 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Member;
 use Illuminate\Http\Request;
+use App\Services\MemberService;
 
 class MemberController extends Controller
 {
+
+    public $memberService;
+
+    public function __construct(MemberService $memberService)
+    {
+        $this->memberService = $memberService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -36,12 +44,7 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request ;
-        $reqData = $request->all();
-
-        $reqData['result'] = ($request->alt + $request->ast +  $request->billirubin +  $request->ishqor + $request->surma + $request->igg + $request->igm) / 7;
-
-        Member::create($reqData);
+        $this->memberService;
 
         return redirect()->route('members.index')->with('success', 'Ma`lumot kiriritildi');
     }

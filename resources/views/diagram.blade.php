@@ -50,7 +50,7 @@
                         <a href="?sick=Gepatit A" style="margin: 10px"><b>Gepatit A</b></a>
                         <a href="?sick=Gepatit B" style="margin: 10px"><b>Gepatit B</b></a>
                         <a href="?sick=Gepatit C" style="margin: 10px"><b>Gepatit C</b></a>
-                        <h3>{{ $s }} kassallarining ПЦР natijasi % da </h3>
+                        <h3>{{ $array['s'] }} kassallarining ПЦР natijasi % da </h3>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         var options = {
-            series: [{{ $torch }}, {{ $covid }}, {{ $omikron }}, {{ $grip }}, {{ $ga }}, {{ $gb }}, {{ $gc }}],
+            series: [{{ $array['torch'] }}, {{ $array['covid'] }}, {{ $array['omikron'] }}, {{ $array['grip'] }}, {{ $array['ga'] }}, {{ $array['gb'] }}, {{ $array['gc'] }}],
             chart: {
                 width: 500,
                 type: 'pie',
@@ -76,7 +76,7 @@
 
         var options = {
             series: [{
-                data: [{{$minus1 }}, {{ $plus1 }}]
+                data: [{{ $array['minus1'] }}, {{ $array['plus1'] }}]
             }],
             chart: {
                 width: 500,
